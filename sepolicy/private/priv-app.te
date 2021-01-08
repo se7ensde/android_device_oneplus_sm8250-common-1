@@ -1,0 +1,1 @@
+allow priv_app vendor_persist_camera_prop:file { read getattr map open };

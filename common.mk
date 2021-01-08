@@ -26,8 +26,8 @@ $(call inherit-product, vendor/oneplus/sm8250-common/sm8250-common-vendor.mk)
 # Gapps
 $(call inherit-product, vendor/google/gms/config.mk)
 
-# GoogleCamera
-$(call inherit-product, packages/apps/GoogleCamera/config.mk)
+# OP Camera
+$(call inherit-product, vendor/oneplus/camera/opcamera-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -105,6 +105,12 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     Snap
 
+PRODUCT_COPY_FILES += \
+    $ vendor/oneplus/camera/system/etc/sysconfig/hiddenapi-package-whitelist-oneplus.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hiddenapi-package-whitelist-oneplus.xml \
+    $ vendor/oneplus/camera/system/etc/permissions/privapp-permissions-oem-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-oem-system.xml \
+    $ vendor/oneplus/camera/system_ext/etc/permissions/privapp-permissions-oem-system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-oem-system_ext.xml \
+    $ vendor/oneplus/camera/product/etc/permissions/com.qti.snapdragon.sdk.display.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.qti.snapdragon.sdk.display.xml
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.opcamera.rc \
@@ -145,6 +151,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.foss=1 \
     vendor.display.foss.config=1 \
     vendor.display.foss.config_path=/system/etc/FOSSConfig.xml
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml
 
 # Init
 PRODUCT_PACKAGES += \

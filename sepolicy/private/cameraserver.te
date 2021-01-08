@@ -1,2 +1,4 @@
 allow cameraserver lineage_data_file:file rw_file_perms;
 allow cameraserver lineage_data_file:dir write;
+
+allow cameraserver vendor_persist_camera_prop:file { read getattr map open };

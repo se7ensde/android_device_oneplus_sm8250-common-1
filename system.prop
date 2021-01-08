@@ -8,6 +8,9 @@ debug.hwui.renderer=skiavk
 
 # Camera
 camera.disable_zsl_mode=true
+persist.camera.privapp.list=com.oneplus.camera
+persist.vendor.camera.privapp.list=com.oneplus.camera
+vendor.camera.aux.packagelist=com.oneplus.factorymode,com.oneplus.camera,com.oneplus.healthcheck
 
 # Charger
 ro.charger.disable_init_blank=true

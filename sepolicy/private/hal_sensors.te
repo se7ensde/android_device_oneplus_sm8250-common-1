@@ -1,0 +1,1 @@
+allow hal_sensors sensors_dbg_prop:file { read open getattr map };

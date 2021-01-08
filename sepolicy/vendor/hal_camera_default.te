@@ -1,0 +1,2 @@
+# Model detection
+allow hal_camera_default sysfs_dtb_model:file r_file_perms;

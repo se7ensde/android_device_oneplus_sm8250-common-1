@@ -1,0 +1,2 @@
+allow platform_app vendor_camera_prop:file { read open getattr map };
+allow platform_app vendor_persist_camera_prop:file  { read getattr map open };
